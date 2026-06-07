@@ -14,7 +14,7 @@
     "audit:hub-docker": "node src/scripts/audit-hub-docker-runtime.mjs"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^5.5.4",
+    "@sveltejs/adapter-static": "^3.0.0",
     "@sveltejs/kit": "^2.57.0",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@types/node": "^24",
