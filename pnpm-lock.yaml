@@ -18,7 +18,7 @@ importers:
         specifier: ^7.0.0
         version: 7.1.2(svelte@5.56.2)(vite@8.0.16(@types/node@25.9.2))
       '@types/node':
-        specifier: ^24
+        specifier: ^25.0.0
         version: 25.9.2
       svelte:
         specifier: ^5.55.2
