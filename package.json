@@ -10,7 +10,8 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "audit:hub": "node src/scripts/audit-hub-foundation.mjs",
-    "audit:hub-paths": "node src/scripts/audit-hub-paths.mjs"
+    "audit:hub-paths": "node src/scripts/audit-hub-paths.mjs",
+    "audit:hub-docker": "node src/scripts/audit-hub-docker-runtime.mjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "latest",
