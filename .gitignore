@@ -1,0 +1,10 @@
+node_modules
+.svelte-kit
+build
+.vercel
+.netlify
+.DS_Store
+.env
+.env.*
+!.env.example
+.pass-backups
