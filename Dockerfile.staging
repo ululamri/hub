@@ -24,7 +24,12 @@ FROM node:22-alpine AS runtime
 WORKDIR /app
 
 ENV PNPM_HOME="/pnpm"
-ENV PATH="${PNPM_HOME}:${PATH}"
+ENV PATH="${PNPM_HOME}/bin:${PNPM_HOME}:${PATH}"
+
+RUN mkdir -p "${PNPM_HOME}/bin" \
+  && corepack enable \
+  && pnpm config set global-bin-dir "${PNPM_HOME}/bin" \
+  && pnpm add -g sirv-cli
 
 RUN corepack enable && pnpm add -g sirv-cli
 
