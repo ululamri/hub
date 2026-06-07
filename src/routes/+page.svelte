@@ -3,7 +3,7 @@
   import { hubHref, hubPath } from '$lib/config/hub-paths';
 
   const featuredResources = hubResources.slice(0, 3);
-  const featuredCollections = hubCollections.slice(0, 3);
+  const featuredCollections = hubCollections.slice(0, 4);
   const featuredMissions = hubMissions.slice(0, 2);
 
   function riskClass(risk: string) {
@@ -17,37 +17,68 @@
   <title>Karyra Hub — Guided Starknet Gateway</title>
   <meta
     name="description"
-    content="Karyra Hub adalah gerbang eksplorasi Starknet yang dipandu: resource, komunitas, misi, dan jalur builder later untuk pengguna lokal."
+    content="Karyra Hub adalah gerbang eksplorasi Starknet yang dipandu: resource, misi, komunitas, use case lokal, dan jalur builder later."
   />
 </svelte:head>
 
 <section class="hero-grid">
   <div class="hero-copy panel">
     <span class="eyebrow">Guided Starknet gateway</span>
-    <h1>Jelajahi Starknet saat fondasimu sudah cukup.</h1>
+    <h1>Jelajahi Starknet tanpa merasa dilempar ke ruang teknis.</h1>
     <p>
-      Karyra Hub bukan katalog link mentah. Hub adalah ruang kurasi yang membantu pengguna lokal menemukan resource,
-      komunitas, aplikasi, dan jalur builder dengan konteks kesiapan yang jelas.
+      Karyra Hub membantu pengguna lokal menemukan resource, komunitas, misi, dan jalur builder dengan konteks kesiapan.
+      Fokusnya sederhana: belajar aman dulu, praktik saat siap, lalu masuk ekosistem dengan arah yang jelas.
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href={hubPath('/resources')}>Jelajahi Resource</a>
-      <a class="btn" href={hubPath('/missions')}>Ikuti Misi Ringan</a>
+      <a class="btn primary" href={hubPath('/resources')}>Jelajahi Resource Starknet</a>
+      <a class="btn ghost" href={hubPath('/missions')}>Ikuti Misi Belajar</a>
     </div>
   </div>
 
   <aside class="hero-panel panel" aria-label="Alur Hub">
     <div class="readiness-card">
-      <small>Jalur besar</small>
+      <small>Alur utama</small>
       <h3>Core → Lab → Passport → Hub</h3>
-      <p>Hub menjadi langkah eksplorasi setelah pengguna punya dasar dan tahu cara menjaga diri.</p>
+      <p>Hub memperluas Spark dari readiness gateway menjadi pintu masuk ekosistem Starknet yang ramah pemula.</p>
     </div>
     <div class="path-steps">
-      <div class="path-step"><span>1</span><div><strong>Belajar dasar</strong><p>Pahami konsep sebelum menyentuh wallet.</p></div></div>
-      <div class="path-step"><span>2</span><div><strong>Praktik aman</strong><p>Coba simulasi tanpa aset nyata.</p></div></div>
-      <div class="path-step"><span>3</span><div><strong>Lihat kesiapan</strong><p>Passport membaca bukti belajar dan langkah berikutnya.</p></div></div>
-      <div class="path-step"><span>4</span><div><strong>Jelajahi Hub</strong><p>Resource Starknet dipandu dengan label risiko dan koleksi tematik.</p></div></div>
+      <div class="path-step"><span>1</span><div><strong>Bangun fondasi</strong><p>Pahami konsep dasar dan risiko sebelum membuka wallet.</p></div></div>
+      <div class="path-step"><span>2</span><div><strong>Praktik aman</strong><p>Coba simulasi tanpa aset nyata dan tanpa tekanan transaksi.</p></div></div>
+      <div class="path-step"><span>3</span><div><strong>Lihat kesiapan</strong><p>Passport membantu membaca bukti belajar dan langkah berikutnya.</p></div></div>
+      <div class="path-step"><span>4</span><div><strong>Jelajahi ekosistem</strong><p>Resource, misi, komunitas, dan builder later dibuka dengan label kesiapan.</p></div></div>
     </div>
   </aside>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Langkah cepat</span>
+      <h2>Pilih pintu masuk yang paling aman.</h2>
+      <p>Hub dirancang agar pengguna tidak harus menebak halaman mana yang perlu dibuka dulu.</p>
+    </div>
+  </div>
+
+  <div class="grid three">
+    <article class="card">
+      <span class="badge safe">Mulai aman</span>
+      <h3>Resource dengan label kesiapan</h3>
+      <p>Buka rujukan yang sudah diberi konteks: ramah pemula, perlu konteks, atau teknis.</p>
+      <a class="btn" href={hubPath('/resources')}>Jelajahi Resource</a>
+    </article>
+    <article class="card">
+      <span class="badge context">Aktivasi lokal</span>
+      <h3>Misi kecil yang bisa dilakukan</h3>
+      <p>Dari membaca, ikut workshop, memetakan use case, sampai siap masuk builder later.</p>
+      <a class="btn" href={hubPath('/missions')}>Ikuti Misi</a>
+    </article>
+    <article class="card">
+      <span class="badge tech">Lanjut bertahap</span>
+      <h3>Builder later, bukan dipaksa cepat</h3>
+      <p>Jalur teknis dibuka setelah pengguna paham keamanan, konteks, dan kebutuhan lokal.</p>
+      <a class="btn" href={hubPath('/resources#developer-later')}>Lihat Jalur Builder</a>
+    </article>
+  </div>
 </section>
 
 <section class="section">
@@ -57,7 +88,7 @@
       <h2>Mulai dari yang aman dulu.</h2>
       <p>Setiap resource diberi konteks kesiapan agar pemula tidak langsung terseret ke transaksi, wallet, atau jargon teknis.</p>
     </div>
-    <a class="btn" href={hubPath('/resources')}>Lihat semua</a>
+    <a class="btn" href={hubPath('/resources')}>Lihat Semua Resource</a>
   </div>
 
   <div class="grid">
@@ -80,11 +111,11 @@
     <div>
       <span class="eyebrow">Koleksi tematik</span>
       <h2>Hub mengarahkan, bukan membanjiri.</h2>
-      <p>Koleksi dibuat mengikuti readiness: dari pemula, komunitas, sampai builder later untuk memperluas jalan masuk ke Starknet.</p>
+      <p>Koleksi mengikuti readiness: dari pemula, komunitas, sampai builder later untuk memperluas jalan masuk ke Starknet.</p>
     </div>
   </div>
 
-  <div class="grid">
+  <div class="grid two">
     {#each featuredCollections as collection}
       <article class="card">
         <span class="badge">{readinessLabels[collection.stage]}</span>
@@ -107,7 +138,7 @@
       <h2>Dari membaca menuju kontribusi.</h2>
       <p>Misi Hub membantu Spark tumbuh dari edukasi menjadi aktivasi lokal dan jalur public goods.</p>
     </div>
-    <a class="btn" href={hubPath('/missions')}>Ikuti misi</a>
+    <a class="btn" href={hubPath('/missions')}>Ikuti Misi</a>
   </div>
 
   <div class="grid two">
@@ -127,10 +158,10 @@
 
 <section class="section callout">
   <span class="eyebrow">Cakupan ekosistem</span>
-  <h2>Hub dibangun untuk membuka banyak pintu ke Starknet.</h2>
+  <h2>Hub memperluas posisi Karyra di Starknet.</h2>
   <p>
-    Cakupan Hub diperluas lewat produk: edukasi lokal, keamanan wallet, aktivasi komunitas, jalur builder later,
-    dan pemetaan use case lokal.
+    Cakupan diperluas lewat produk, bukan klaim kosong: edukasi lokal, keamanan wallet, aktivasi komunitas,
+    jalur builder later, guided ecosystem discovery, dan pemetaan use case public goods.
   </p>
   <div class="grid two compact-grid">
     {#each ecosystemAreas as area}

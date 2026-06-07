@@ -25,17 +25,14 @@ WORKDIR /app
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="${PNPM_HOME}/bin:${PNPM_HOME}:${PATH}"
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=4174
 
 RUN mkdir -p "${PNPM_HOME}/bin" \
   && corepack enable \
   && pnpm config set global-bin-dir "${PNPM_HOME}/bin" \
   && pnpm add -g sirv-cli
-
-RUN corepack enable && pnpm add -g sirv-cli
-
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=4174
 
 COPY --from=builder /app/build ./build
 

@@ -42,7 +42,7 @@ export const readinessLabels: Record<ReadinessStage, string> = {
 export const hubResources: HubResource[] = [
   {
     title: 'Peta aman sebelum menyentuh wallet',
-    description: 'Ringkasan praktis untuk memahami risiko wallet, seed phrase, dan tanda bahaya sebelum membuka aplikasi apa pun.',
+    description: 'Mulai dari tanda bahaya, seed phrase, signature, dan kebiasaan aman sebelum membuka aplikasi apa pun.',
     category: 'Wallet Safety',
     risk: 'Ramah pemula',
     stage: 'baru-mulai',
@@ -51,7 +51,7 @@ export const hubResources: HubResource[] = [
   },
   {
     title: 'Starknet dalam bahasa sederhana',
-    description: 'Penjelasan singkat tentang mengapa Starknet penting, apa yang berbeda, dan kapan pemula perlu memahaminya.',
+    description: 'Pahami apa itu Starknet, mengapa skalabilitas penting, dan kapan pengguna pemula perlu mulai mengenalnya.',
     category: 'Starknet Basics',
     risk: 'Ramah pemula',
     stage: 'setelah-core',
@@ -60,7 +60,7 @@ export const hubResources: HubResource[] = [
   },
   {
     title: 'Resource explorer yang dipandu',
-    description: 'Daftar rujukan awal yang tidak langsung mendorong transaksi, dengan label risiko dan konteks kesiapan.',
+    description: 'Jelajahi rujukan awal dengan label kesiapan, bukan daftar link acak yang langsung membawa pengguna ke risiko transaksi.',
     category: 'Guided Resources',
     risk: 'Perlu konteks',
     stage: 'siap-praktik',
@@ -69,7 +69,7 @@ export const hubResources: HubResource[] = [
   },
   {
     title: 'Workshop lokal dan cohort',
-    description: 'Ruang untuk menghubungkan pembelajar lokal, fasilitator, dan agenda belajar bertahap dari komunitas.',
+    description: 'Hubungkan pembelajar lokal, fasilitator, dan agenda belajar bertahap untuk membuka jalan komunitas Starknet.',
     category: 'Community',
     risk: 'Ramah pemula',
     stage: 'komunitas',
@@ -77,8 +77,8 @@ export const hubResources: HubResource[] = [
     href: '/missions#belajar-bersama-komunitas'
   },
   {
-    title: 'Builder later: Cairo, Scarb, dan Dojo',
-    description: 'Gerbang lanjutan untuk peserta yang sudah siap masuk teknis setelah menyelesaikan fondasi pengguna.',
+    title: 'Builder later: Cairo, Scarb, Starknet Foundry, Dojo',
+    description: 'Jalur lanjutan untuk peserta yang sudah siap masuk teknis setelah fondasi keamanan dan pemahaman pengguna terbentuk.',
     category: 'Developer Later',
     risk: 'Teknis',
     stage: 'builder',
@@ -87,8 +87,8 @@ export const hubResources: HubResource[] = [
   },
   {
     title: 'Peta use case lokal',
-    description: 'Ruang eksplorasi untuk menghubungkan masalah lokal, komunitas, dan peluang kontribusi public goods di ekosistem Starknet.',
-    category: 'Local Use Cases',
+    description: 'Ruang untuk menghubungkan masalah lokal, komunitas, dan peluang kontribusi public goods di ekosistem Starknet.',
+    category: 'Local Public Goods',
     risk: 'Perlu konteks',
     stage: 'komunitas',
     action: 'Petakan use case',
@@ -105,13 +105,13 @@ export const hubCollections: HubCollection[] = [
   },
   {
     title: 'Siap coba tanpa aset nyata',
-    description: 'Kumpulan latihan dan rujukan yang tetap aman karena tidak menuntut aset, seed phrase, atau transaksi bernilai.',
+    description: 'Latihan dan rujukan yang tetap aman karena tidak menuntut seed phrase, aset, atau transaksi bernilai.',
     stage: 'siap-praktik',
     items: ['Resource explorer yang dipandu', 'Workshop lokal dan cohort', 'Peta aman sebelum menyentuh wallet']
   },
   {
     title: 'Untuk fasilitator lokal',
-    description: 'Materi kurasi untuk workshop, cohort, dan sesi pendampingan komunitas agar tidak mulai dari jargon teknis.',
+    description: 'Materi kurasi untuk workshop, cohort, dan sesi pendampingan agar komunitas tidak mulai dari jargon teknis.',
     stage: 'komunitas',
     items: ['Workshop lokal dan cohort', 'Peta use case lokal', 'Starknet dalam bahasa sederhana']
   },
@@ -126,13 +126,13 @@ export const hubCollections: HubCollection[] = [
 export const hubMissions: HubMission[] = [
   {
     title: 'Baca 3 resource ramah pemula',
-    description: 'Misi pembuka untuk membuat Hub terasa dipandu, bukan katalog link mentah.',
+    description: 'Misi pembuka agar Hub terasa dipandu, bukan katalog link mentah.',
     steps: ['Mulai dari peta aman', 'Baca dasar Starknet', 'Simpan satu resource untuk dipelajari lagi'],
     outcome: 'Pengguna tahu resource mana yang aman dibuka lebih dulu.'
   },
   {
     title: 'Belajar bersama komunitas',
-    description: 'Misi untuk fasilitator lokal yang ingin membawa Spark ke workshop atau cohort kecil.',
+    description: 'Misi untuk fasilitator lokal yang ingin membawa Spark dan Hub ke workshop atau cohort kecil.',
     steps: ['Pilih satu topik dasar', 'Catat pertanyaan umum peserta', 'Arahkan peserta ke Core dan Lab sebelum Hub penuh'],
     outcome: 'Komunitas punya alur aktivasi yang tidak menakutkan untuk pemula.'
   },
@@ -140,7 +140,7 @@ export const hubMissions: HubMission[] = [
     title: 'Petakan use case lokal',
     description: 'Misi untuk mengumpulkan ide lokal yang bisa berkembang menjadi eksperimen Starknet saat komunitas sudah siap.',
     steps: ['Tulis masalah lokal', 'Tentukan siapa yang terbantu', 'Pilih apakah butuh edukasi, komunitas, atau builder support'],
-    outcome: 'Spark menjadi jembatan dari edukasi menuju kontribusi public goods.'
+    outcome: 'Spark dan Hub menjadi jembatan dari edukasi menuju kontribusi public goods.'
   },
   {
     title: 'Builder later readiness',
@@ -153,7 +153,7 @@ export const hubMissions: HubMission[] = [
 export const ecosystemAreas: EcosystemArea[] = [
   {
     title: 'Edukasi pengguna lokal',
-    description: 'Menerjemahkan konsep Starknet ke jalur belajar bertahap untuk pemula Indonesia.',
+    description: 'Menerjemahkan Starknet ke jalur belajar bertahap untuk pemula Indonesia.',
     focus: 'Core, Lab, glossary, dan resource ramah pemula.'
   },
   {
@@ -175,5 +175,10 @@ export const ecosystemAreas: EcosystemArea[] = [
     title: 'Use case dan public goods lokal',
     description: 'Memetakan masalah nyata di komunitas lokal yang bisa menjadi kontribusi open ecosystem di masa depan.',
     focus: 'Pemetaan masalah, kebutuhan komunitas, dan eksperimen kecil.'
+  },
+  {
+    title: 'Guided ecosystem discovery',
+    description: 'Membuat eksplorasi aplikasi dan resource Starknet terasa aman karena diberi konteks kesiapan.',
+    focus: 'Koleksi, label risiko, readiness path, dan misi ringan.'
   }
 ];
