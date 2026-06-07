@@ -1,6 +1,8 @@
 <script lang="ts">
   import { ecosystemAreas, hubCollections, hubMissions, hubResources, readinessLabels } from '$lib/data/hub-content';
   import { hubHref, hubPath } from '$lib/config/hub-paths';
+  import StarknetReadinessPanel from '$lib/components/StarknetReadinessPanel.svelte';
+  import StarknetWalletPreview from '$lib/components/StarknetWalletPreview.svelte';
 
   const featuredResources = hubResources.slice(0, 3);
   const featuredCollections = hubCollections.slice(0, 4);
@@ -48,6 +50,42 @@
       <div class="path-step"><span>4</span><div><strong>Jelajahi ekosistem</strong><p>Resource, misi, komunitas, dan builder later dibuka dengan label kesiapan.</p></div></div>
     </div>
   </aside>
+
+</section>
+
+<section class="section starknet-alpha-section" aria-labelledby="starknet-alpha-heading">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Starknet alpha proof</span>
+      <h2 id="starknet-alpha-heading">Integrasi kecil, arah teknis nyata.</h2>
+      <p>
+        Hub mulai menyentuh Starknet secara aman: membaca status jaringan, mendeteksi wallet tanpa connect,
+        dan menyiapkan contoh Cairo/Scarb untuk jalur builder later.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid three">
+    <StarknetReadinessPanel />
+    <StarknetWalletPreview />
+    <article class="card starknet-alpha-card cairo-example-card">
+      <div class="badge-row">
+        <span class="badge tech">Cairo/Scarb</span>
+        <span class="badge context">Builder later</span>
+      </div>
+      <h3>Contoh kontrak readiness</h3>
+      <p>
+        Contoh minimal ini tidak dideploy dan tidak menyimpan data pengguna. Ia menunjukkan arah builder path:
+        dari pengguna aman menuju tooling Starknet saat sudah siap.
+      </p>
+      <div class="scope-list">
+        <span>Cairo</span>
+        <span>Scarb</span>
+        <span>Starknet contract</span>
+      </div>
+      <a class="btn" href="https://github.com/ululamri/hub/tree/master/examples/starknet/hello_readiness" target="_blank" rel="noreferrer">Lihat Contoh Cairo/Scarb</a>
+    </article>
+  </div>
 </section>
 
 <section class="section">

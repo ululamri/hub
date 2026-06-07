@@ -26,6 +26,12 @@
 <div class="hub-shell">
   <div class="hub-ambient" aria-hidden="true"></div>
 
+  <div class="hub-beta-banner" role="status" aria-label="Status versi Karyra Spark dan Hub">
+    <span>BETA 0.1</span>
+    <strong>Karyra Spark + Hub Beta 0.1</strong>
+    <small>Readiness gateway Starknet masih tahap awal: aman dulu, integrasi bertahap.</small>
+  </div>
+
   <header class="hub-topbar">
     <a class="hub-brand" href={hubPath('/')} aria-label="Buka beranda Karyra Hub">
       <span class="hub-brand-mark">K</span>

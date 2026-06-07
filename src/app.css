@@ -249,3 +249,82 @@ p { color: var(--muted); line-height: 1.68; }
   .hero-actions, .quick-actions { display: grid; }
   .hero-actions .btn, .quick-actions .btn { width: 100%; }
 }
+
+/* Pass 68L — Starknet minimal integration and beta signal */
+.hub-beta-banner {
+  position: relative;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.18);
+  background: linear-gradient(90deg, rgba(2, 6, 23, 0.96), rgba(49, 46, 129, 0.82), rgba(2, 6, 23, 0.96));
+  color: rgba(238, 244, 255, 0.86);
+  font-size: 12px;
+  text-align: center;
+}
+.hub-beta-banner span {
+  display: inline-flex;
+  padding: 3px 8px;
+  border: 1px solid rgba(125, 211, 252, 0.32);
+  border-radius: 999px;
+  background: rgba(125, 211, 252, 0.12);
+  color: #a5f3fc;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+.hub-beta-banner strong { color: white; }
+.hub-beta-banner small { color: var(--muted-strong); }
+.starknet-alpha-section .grid.three { align-items: stretch; }
+.starknet-alpha-card { min-height: 100%; }
+.starknet-facts {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 0;
+}
+.starknet-facts div,
+.wallet-list li {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid rgba(125, 211, 252, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+}
+.starknet-facts dt,
+.wallet-list span,
+.wallet-list small,
+.starknet-alpha-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+.starknet-facts dd {
+  margin: 0;
+  color: white;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+.wallet-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wallet-list li.detected {
+  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.08);
+}
+.wallet-list strong { color: white; }
+.compact-callout { margin-top: 4px; }
+.cairo-example-card .btn { width: fit-content; }
+@media (max-width: 640px) {
+  .hub-beta-banner {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .cairo-example-card .btn { width: 100%; }
+}
