@@ -1,5 +1,6 @@
 <script lang="ts">
   import { hubCollections, hubResources, readinessLabels } from '$lib/data/hub-content';
+  import { hubHref } from '$lib/config/hub-paths';
 
   function riskClass(risk: string) {
     if (risk === 'Ramah pemula') return 'safe';
@@ -39,7 +40,7 @@
         </div>
         <h3>{resource.title}</h3>
         <p>{resource.description}</p>
-        <a class="btn" href={resource.href}>{resource.action}</a>
+        <a class="btn" href={hubHref(resource.href)}>{resource.action}</a>
       </article>
     {/each}
   </div>

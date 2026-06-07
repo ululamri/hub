@@ -1,5 +1,6 @@
 <script lang="ts">
   import { ecosystemAreas, hubCollections, hubMissions, hubResources, readinessLabels } from '$lib/data/hub-content';
+  import { hubHref, hubPath } from '$lib/config/hub-paths';
 
   const featuredResources = hubResources.slice(0, 3);
   const featuredCollections = hubCollections.slice(0, 3);
@@ -29,8 +30,8 @@
       komunitas, aplikasi, dan jalur builder dengan konteks kesiapan yang jelas.
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href="/resources">Jelajahi Resource</a>
-      <a class="btn" href="/missions">Ikuti Misi Ringan</a>
+      <a class="btn primary" href={hubPath('/resources')}>Jelajahi Resource</a>
+      <a class="btn" href={hubPath('/missions')}>Ikuti Misi Ringan</a>
     </div>
   </div>
 
@@ -56,7 +57,7 @@
       <h2>Mulai dari yang aman dulu.</h2>
       <p>Setiap resource diberi konteks kesiapan agar pemula tidak langsung terseret ke transaksi, wallet, atau jargon teknis.</p>
     </div>
-    <a class="btn" href="/resources">Lihat semua</a>
+    <a class="btn" href={hubPath('/resources')}>Lihat semua</a>
   </div>
 
   <div class="grid">
@@ -68,7 +69,7 @@
         </div>
         <h3>{resource.title}</h3>
         <p>{resource.description}</p>
-        <a class="btn" href={resource.href}>{resource.action}</a>
+        <a class="btn" href={hubHref(resource.href)}>{resource.action}</a>
       </article>
     {/each}
   </div>
@@ -106,7 +107,7 @@
       <h2>Dari membaca menuju kontribusi.</h2>
       <p>Misi Hub membantu Spark tumbuh dari edukasi menjadi aktivasi lokal dan jalur public goods.</p>
     </div>
-    <a class="btn" href="/missions">Ikuti misi</a>
+    <a class="btn" href={hubPath('/missions')}>Ikuti misi</a>
   </div>
 
   <div class="grid two">
@@ -129,7 +130,7 @@
   <h2>Hub dibangun untuk membuka banyak pintu ke Starknet.</h2>
   <p>
     Cakupan Hub diperluas lewat produk: edukasi lokal, keamanan wallet, aktivasi komunitas, jalur builder later,
-    dan pemetaan use case lokal. Strategi pendanaan tidak ditampilkan di UI publik.
+    dan pemetaan use case lokal.
   </p>
   <div class="grid two compact-grid">
     {#each ecosystemAreas as area}

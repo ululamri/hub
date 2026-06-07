@@ -1,19 +1,20 @@
 <script lang="ts">
   import '../app.css';
+  import { hubPath, sparkAppUrl } from '$lib/config/hub-paths';
 
   let { children } = $props();
 </script>
 
 <div class="hub-shell">
   <header class="hub-topbar">
-    <a class="hub-brand" href="/" aria-label="Karyra Hub beranda">
+    <a class="hub-brand" href={hubPath('/')} aria-label="Karyra Hub beranda">
       <span class="hub-brand-mark">H</span>
       <span>Karyra Hub</span>
     </a>
     <nav class="hub-nav" aria-label="Navigasi Hub">
-      <a href="/resources">Jelajahi Resource</a>
-      <a href="/missions">Ikuti Misi</a>
-      <a class="primary-link" href="https://spark.user.cloudjkt01.com">Kembali ke Spark</a>
+      <a href={hubPath('/resources')}>Jelajahi Resource</a>
+      <a href={hubPath('/missions')}>Ikuti Misi</a>
+      <a class="primary-link" href={sparkAppUrl}>Kembali ke Spark</a>
     </nav>
   </header>
 
