@@ -3,6 +3,7 @@
   import { hubHref, hubPath } from '$lib/config/hub-paths';
   import StarknetReadinessPanel from '$lib/components/StarknetReadinessPanel.svelte';
   import StarknetWalletPreview from '$lib/components/StarknetWalletPreview.svelte';
+  import StarknetRpcLiveCard from '$lib/components/StarknetRpcLiveCard.svelte';
 
   const featuredResources = hubResources.slice(0, 3);
   const featuredCollections = hubCollections.slice(0, 4);
@@ -67,6 +68,7 @@
 
   <div class="grid three">
     <StarknetReadinessPanel />
+    <StarknetRpcLiveCard />
     <StarknetWalletPreview />
     <article class="card starknet-alpha-card cairo-example-card">
       <div class="badge-row">
