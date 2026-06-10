@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { env as publicEnv } from '$env/dynamic/public';
+import { STARKNET_NETWORK_NAME, STARKNET_RPC_URL } from '$lib/starknet/starknet-rpc-config';
 
 export type StarknetNetworkStatus = 'checking' | 'online' | 'offline' | 'unavailable';
 
@@ -12,12 +12,6 @@ export type StarknetNetworkSnapshot = {
   message: string;
   checkedAt?: string;
 };
-
-const DEFAULT_NETWORK = publicEnv.PUBLIC_STARKNET_NETWORK || 'Starknet Sepolia';
-
-// Public read-only RPC used only for alpha network status checks.
-// Production can override this with PUBLIC_STARKNET_RPC_URL without changing code.
-const DEFAULT_RPC_URL = 'https://starknet-sepolia.public.blastapi.io/rpc/v0_7';
 
 function normalizeBlockNumber(block: unknown): number | undefined {
   if (!block || typeof block !== 'object') return undefined;
@@ -37,13 +31,13 @@ export async function readStarknetNetworkStatus(): Promise<StarknetNetworkSnapsh
   if (!browser) {
     return {
       status: 'unavailable',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only',
       message: 'Status jaringan hanya dicek di browser.'
     };
   }
 
-  const nodeUrl = publicEnv.PUBLIC_STARKNET_RPC_URL || DEFAULT_RPC_URL;
+  const nodeUrl = STARKNET_RPC_URL;
 
   try {
     const starknet = await import('starknet');
@@ -52,7 +46,7 @@ export async function readStarknetNetworkStatus(): Promise<StarknetNetworkSnapsh
     if (!RpcProvider) {
       return {
         status: 'unavailable',
-        networkName: DEFAULT_NETWORK,
+        networkName: STARKNET_NETWORK_NAME,
         mode: 'Read-only',
         message: 'SDK Starknet belum siap dibaca di browser ini.'
       };
@@ -73,7 +67,7 @@ export async function readStarknetNetworkStatus(): Promise<StarknetNetworkSnapsh
 
     return {
       status: 'online',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only',
       chainId,
       latestBlock,
@@ -83,7 +77,7 @@ export async function readStarknetNetworkStatus(): Promise<StarknetNetworkSnapsh
   } catch (error) {
     return {
       status: 'offline',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only',
       message: asMessage(error),
       checkedAt: new Date().toISOString()

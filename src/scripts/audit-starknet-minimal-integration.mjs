@@ -23,11 +23,14 @@ if (!pkg.scripts?.['audit:starknet-minimal']) blockers.push('package.json must i
 
 const readinessPath = path.join(root, 'src/lib/starknet/starknet-readiness.ts');
 const readiness = fs.existsSync(readinessPath) ? fs.readFileSync(readinessPath, 'utf8') : '';
-if (readiness.includes('$env/static/public')) {
-  blockers.push('starknet-readiness.ts must use $env/dynamic/public so missing optional env values do not break svelte-check.');
+const rpcConfigPath = path.join(root, 'src/lib/starknet/starknet-rpc-config.ts');
+const rpcConfig = fs.existsSync(rpcConfigPath) ? fs.readFileSync(rpcConfigPath, 'utf8') : '';
+const publicEnvSource = `${readiness}\n${rpcConfig}`;
+if (publicEnvSource.includes('$env/static/public')) {
+  blockers.push('Starknet RPC config must use $env/dynamic/public so missing optional env values do not break svelte-check.');
 }
-if (!readiness.includes("from '$env/dynamic/public'")) {
-  blockers.push('starknet-readiness.ts must import env from $env/dynamic/public.');
+if (!publicEnvSource.includes("from '$env/dynamic/public'")) {
+  blockers.push('Starknet readiness or shared RPC config must import env from $env/dynamic/public.');
 }
 
 const layout = fs.existsSync(path.join(root, 'src/routes/+layout.svelte'))

@@ -1,5 +1,9 @@
 import { browser } from '$app/environment';
-import { env as publicEnv } from '$env/dynamic/public';
+import {
+  STARKNET_NETWORK_NAME,
+  STARKNET_RPC_URL,
+  starknetRpcEndpointLabel
+} from '$lib/starknet/starknet-rpc-config';
 
 export type StarknetRpcStatus = 'checking' | 'online' | 'offline' | 'unavailable';
 
@@ -17,10 +21,6 @@ export type StarknetRpcSnapshot = {
   message: string;
 };
 
-const DEFAULT_NETWORK = publicEnv.PUBLIC_STARKNET_NETWORK || 'Starknet Sepolia';
-const DEFAULT_RPC_URL =
-  publicEnv.PUBLIC_STARKNET_RPC_URL || 'https://starknet-sepolia.public.blastapi.io/rpc/v0_7';
-
 type JsonRpcSuccess<T> = {
   jsonrpc: '2.0';
   id: string;
@@ -35,16 +35,6 @@ type JsonRpcFailure = {
     message: string;
   };
 };
-
-function endpointLabel(nodeUrl: string) {
-  try {
-    const url = new URL(nodeUrl);
-    const version = url.pathname.match(/\/rpc\/(v\d+_\d+)/)?.[1];
-    return version ? `${url.hostname} · ${version}` : url.hostname;
-  } catch {
-    return 'Configured RPC endpoint';
-  }
-}
 
 function decodeChainId(value: string) {
   if (!value.startsWith('0x')) return undefined;
@@ -113,15 +103,15 @@ async function rpcCall<T>(nodeUrl: string, method: string): Promise<T> {
 }
 
 export async function readStarknetRpcStatus(): Promise<StarknetRpcSnapshot> {
-  const nodeUrl = DEFAULT_RPC_URL;
+  const nodeUrl = STARKNET_RPC_URL;
   const startedAt = typeof performance !== 'undefined' ? performance.now() : Date.now();
 
   if (!browser) {
     return {
       status: 'unavailable',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only RPC',
-      endpointLabel: endpointLabel(nodeUrl),
+      endpointLabel: starknetRpcEndpointLabel(),
       message: 'Data RPC hanya dicek di browser agar build statis tetap aman.'
     };
   }
@@ -152,9 +142,9 @@ export async function readStarknetRpcStatus(): Promise<StarknetRpcSnapshot> {
 
     return {
       status: 'online',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only RPC',
-      endpointLabel: endpointLabel(nodeUrl),
+      endpointLabel: starknetRpcEndpointLabel(),
       chainId,
       chainIdLabel: chainId ? decodeChainId(chainId) : undefined,
       latestBlock,
@@ -171,9 +161,9 @@ export async function readStarknetRpcStatus(): Promise<StarknetRpcSnapshot> {
 
     return {
       status: 'offline',
-      networkName: DEFAULT_NETWORK,
+      networkName: STARKNET_NETWORK_NAME,
       mode: 'Read-only RPC',
-      endpointLabel: endpointLabel(nodeUrl),
+      endpointLabel: starknetRpcEndpointLabel(),
       latencyMs: Math.max(0, Math.round(finishedAt - startedAt)),
       checkedAt: new Date().toISOString(),
       message: asMessage(error)

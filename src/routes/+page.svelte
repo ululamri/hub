@@ -4,6 +4,7 @@
   import StarknetReadinessPanel from '$lib/components/StarknetReadinessPanel.svelte';
   import StarknetWalletPreview from '$lib/components/StarknetWalletPreview.svelte';
   import StarknetRpcLiveCard from '$lib/components/StarknetRpcLiveCard.svelte';
+  import StarknetAddressReader from '$lib/components/StarknetAddressReader.svelte';
 
   const featuredResources = hubResources.slice(0, 3);
   const featuredCollections = hubCollections.slice(0, 4);
@@ -70,6 +71,7 @@
     <StarknetReadinessPanel />
     <StarknetRpcLiveCard />
     <StarknetWalletPreview />
+    <StarknetAddressReader />
     <article class="card starknet-alpha-card cairo-example-card">
       <div class="badge-row">
         <span class="badge tech">Cairo/Scarb</span>

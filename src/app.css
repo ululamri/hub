@@ -356,3 +356,117 @@ p { color: var(--muted); line-height: 1.68; }
     grid-template-columns: 1fr;
   }
 }
+
+/* PASS SUBMISSION-01 - Starknet Sepolia address reader */
+.starknet-address-reader-card {
+  grid-column: span 2;
+  border-color: rgba(56, 189, 248, 0.24);
+  background:
+    radial-gradient(circle at 88% 0%, rgba(56, 189, 248, 0.14), transparent 34%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(8, 18, 34, 0.8));
+}
+.address-reader-form {
+  display: grid;
+  gap: 8px;
+}
+.address-reader-form label {
+  color: white;
+  font-size: 13px;
+  font-weight: 850;
+}
+.address-reader-form small {
+  color: var(--muted);
+}
+.address-reader-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+.address-reader-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: 16px;
+  color: white;
+  background: rgba(2, 6, 23, 0.58);
+}
+.address-reader-input::placeholder {
+  color: #64748b;
+}
+.address-reader-input[aria-invalid='true'] {
+  border-color: rgba(251, 113, 133, 0.7);
+}
+.address-reader-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+.address-reader-result,
+.address-reader-empty {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(2, 6, 23, 0.38);
+}
+.address-reader-result.success {
+  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.07);
+}
+.address-reader-result.invalid,
+.address-reader-result.rpc-unavailable,
+.address-reader-result.unavailable {
+  border-color: rgba(251, 113, 133, 0.32);
+  background: rgba(251, 113, 133, 0.07);
+}
+.address-reader-result > strong,
+.address-reader-empty strong {
+  color: white;
+}
+.address-reader-result > p {
+  margin: 0;
+}
+.address-reader-empty span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.address-reader-facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.address-reader-facts .wide {
+  grid-column: 1 / -1;
+}
+.address-reader-safety {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.address-reader-safety li {
+  padding: 9px 11px;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 14px;
+  color: #bbf7d0;
+  background: rgba(52, 211, 153, 0.06);
+  font-size: 12px;
+  font-weight: 800;
+}
+@media (max-width: 980px) {
+  .starknet-address-reader-card {
+    grid-column: auto;
+  }
+}
+@media (max-width: 640px) {
+  .address-reader-controls,
+  .address-reader-facts,
+  .address-reader-safety {
+    grid-template-columns: 1fr;
+  }
+  .address-reader-button {
+    width: 100%;
+  }
+}

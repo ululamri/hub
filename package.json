@@ -14,7 +14,8 @@
     "audit:hub-docker": "node src/scripts/audit-hub-docker-runtime.mjs",
     "audit:hub-ux": "node src/scripts/audit-hub-ux.mjs",
     "audit:starknet-minimal": "node src/scripts/audit-starknet-minimal-integration.mjs",
-    "audit:pass69d": "node src/scripts/audit-pass69d-live-rpc.mjs"
+    "audit:pass69d": "node src/scripts/audit-pass69d-live-rpc.mjs",
+    "audit:submission01": "node src/scripts/audit-submission01-address-reader.mjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.0",
