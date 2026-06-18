@@ -35,4 +35,4 @@ Strategi pendanaan dan dokumen pengajuan tidak ditampilkan di UI publik Hub. Jik
 
 ## License
 
-Karyra Hub is source-available with all rights reserved. See [LICENSE](LICENSE) for the current project license and reuse restrictions.
+MIT License. See [LICENSE](LICENSE).
