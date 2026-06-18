@@ -7,11 +7,6 @@ function normalizeBasePath(value) {
   return path.replace(/\/$/, '');
 }
 
-function adapterFallback(basePath) {
-  if (!basePath) return 'spa.html';
-  return `${basePath.slice(1)}/spa.html`;
-}
-
 const hubBasePath = normalizeBasePath(process.env.PUBLIC_HUB_BASE_PATH ?? '');
 
 const prerenderEntries = ['/', '/resources', '/missions'];
@@ -21,7 +16,7 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
-      fallback: adapterFallback(hubBasePath)
+      fallback: 'spa.html'
     }),
     paths: {
       base: hubBasePath
