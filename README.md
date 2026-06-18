@@ -32,3 +32,7 @@ pnpm run dev
 ```
 
 Strategi pendanaan dan dokumen pengajuan tidak ditampilkan di UI publik Hub. Jika nanti diperlukan, progress dan roadmap dapat dipublikasikan setelah ada keputusan resmi.
+
+## License
+
+Karyra Hub is source-available with all rights reserved. See [LICENSE](LICENSE) for the current project license and reuse restrictions.
