@@ -33,6 +33,18 @@ pnpm run dev
 
 Strategi pendanaan dan dokumen pengajuan tidak ditampilkan di UI publik Hub. Jika nanti diperlukan, progress dan roadmap dapat dipublikasikan setelah ada keputusan resmi.
 
+## Live static deployment
+
+Live server Karyra saat ini melayani Hub sebagai static build, bukan Docker runtime.
+
+Build path live: `/opt/karyra/hub/build`.
+
+Build command live: `pnpm run build:live`.
+
+Caddy rule untuk Hub harus memakai `handle_path /hub*`, root ke build path live, dan fallback ke `/spa.html`.
+
+Alasannya: Hub dibangun dengan base path `/hub`, tetapi file static di dalam folder build harus dibaca setelah prefix `/hub` di-strip. Jika prefix tidak di-strip, browser bisa gagal mengambil asset `/hub/_app/...`, sehingga halaman tampak seperti teks polos tanpa render penuh.
+
 ## License
 
 MIT License. See [LICENSE](LICENSE).
